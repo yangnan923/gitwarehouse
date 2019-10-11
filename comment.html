@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 500px;
+				/*height: 300px;*/
+				border: 1px solid green;
+				margin: auto;
+			}
+			textarea{
+				margin-left: 80px;
+				width: 350px;
+				height: 130px;
+				resize: none;
+			}
+			#wen{
+				margin-left: 430px;
+			}
+			ul{
+				list-style: none;
+				width: 100%;
+			}
+			ul li{
+				width: 70%;
+				/*margin: 2px auto;*/
+				margin-left: 40px;
+				line-height: 30px;
+				border-bottom:1px dashed #CCCCCC ;
+				color: red;
+				
+			}
+			ul li a{
+				float: right;
+				text-decoration: none;
+			}
+
+			
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<span>发表评论:</span><br />
+			<textarea name="text"></textarea><br />
+			<button id="wen">发表</button>
+			<ul>
+				<li >热<a href="javascript:;">删除</a></li>
+			</ul>
+
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$("button").click(function(){
+  					//获取表单内容
+  					var value=$("textarea").val();
+  					$("ul").prepend($("<li >"+value+"<a href=''>删除</a></li>"))
+			        $("textarea").val("")
+				})
+  				$("ul").on("click","a",function(){
+  					$(this).parent().remove();
+  					return false;
+  				})
+			})
+  				
+  				
+		</script>
+	</body>
+</html>
